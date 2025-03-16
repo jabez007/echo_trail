@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mccann_hub-echo_trail"
+version = "0.1.0"
+dependencies = []
+
