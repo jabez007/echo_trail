@@ -3,8 +3,9 @@ import os
 import sys
 from logging.handlers import RotatingFileHandler
 
-from defaults import DEFAULT_LOG_FILE, DEFAULT_METADATA, LOG_DIR
 from pythonjsonlogger import jsonlogger
+
+from .defaults import DEFAULT_LOG_FILE, DEFAULT_METADATA, LOG_DIR
 
 
 def logger_setup(

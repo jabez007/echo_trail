@@ -2,8 +2,8 @@ import logging
 import unittest
 from unittest.mock import MagicMock, patch
 
+from mccann_hub.echo_trail import logger_setup
 from mccann_hub.echo_trail.defaults import DEFAULT_METADATA, LOG_DIR
-from mccann_hub.echo_trail.logger_setup import logger_setup
 
 
 class TestLoggerSetup(unittest.TestCase):
@@ -20,7 +20,7 @@ class TestLoggerSetup(unittest.TestCase):
 
     @patch("os.makedirs")
     @patch("logging.getLogger")
-    @patch("mccann_hub.echo_trail.logger_setup.RotatingFileHandler")
+    @patch("mccann_hub.echo_trail.setup.RotatingFileHandler")
     def test_root_logger_setup_creates_handlers(
         self, mock_rotating_handler, mock_get_logger, mock_makedirs
     ):
@@ -38,7 +38,7 @@ class TestLoggerSetup(unittest.TestCase):
     @patch("os.makedirs")
     @patch("logging.getLogger")
     @patch(
-        "mccann_hub.echo_trail.logger_setup.RotatingFileHandler"
+        "mccann_hub.echo_trail.setup.RotatingFileHandler"
     )  # Mock RotatingFileHandler directly
     def test_logger_setup_creates_rotating_file_handler(
         self, mock_rotating_handler, mock_get_logger, mock_makedirs
@@ -77,7 +77,7 @@ class TestLoggerSetup(unittest.TestCase):
         mock_logger.addHandler.assert_called_with(custom_handler)
 
     @patch("os.makedirs")
-    @patch("mccann_hub.echo_trail.logger_setup.RotatingFileHandler")
+    @patch("mccann_hub.echo_trail.setup.RotatingFileHandler")
     def test_logger_setup_injects_default_metadata(
         self, mock_rotating_handler, mock_makedirs
     ):
@@ -97,7 +97,7 @@ class TestLoggerSetup(unittest.TestCase):
         self.assertEqual(log_output.hostname, DEFAULT_METADATA["hostname"])
 
     @patch("os.makedirs")
-    @patch("mccann_hub.echo_trail.logger_setup.RotatingFileHandler")
+    @patch("mccann_hub.echo_trail.setup.RotatingFileHandler")
     def test_logger_setup_injects_extra_metadata(
         self, mock_rotating_handler, mock_makedirs
     ):

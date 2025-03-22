@@ -34,4 +34,4 @@ jobs:
 
       - name: Run tests
         run: |
-          PYTHONPATH=mccann_hub/echo_trail python -m unittest discover -s tests
+          PYTHONPATH=src python -m unittest discover -s tests

@@ -1,6 +1,6 @@
 import logging
 
-from defaults import DEFAULT_METADATA
+from .defaults import DEFAULT_METADATA
 
 
 def get_logger(name=None, additional_metadata=None):
