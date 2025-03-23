@@ -11,7 +11,7 @@ A JSON logger with dynamic metadata injection for consistent log formatting acro
 ## Installation
 
 ```bash
-pip install mccann_hub_echo_trail
+pip install mccann_hub-echo_trail
 ```
 
 ## Usage
